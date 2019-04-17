@@ -535,7 +535,42 @@ List <Long> arrList  = new ArrayList <Long>();
 
 		public String rotate(String string) {
 			// TODO Write an implementation for this method declaration
-			return null;
+			
+			 String  str = string;
+			 String codedString ="";
+			 int rotValue = 13;
+			 
+			 char inStringArry[] =  string.toCharArray();
+			 char myChar;
+			 int tempInt =0;
+			for(int i =0; i <string.length(); i++)
+			{
+				if(Character.isLetter(inStringArry[i])) {
+					 tempInt = (char)(inStringArry[i]);
+					 //The line below was found online 
+					//ch3=(char)(((int)ch1[i]+shift-97)%26+97);
+					if (tempInt > 96 && tempInt< 123) {
+					myChar = (char)(((int)inStringArry[i] + key - 97 ) % 26 + 97);	
+					codedString = codedString + myChar;
+					}//end if
+					
+					else if(tempInt > 64 && tempInt < 91){	
+						myChar = (char)(((int)inStringArry[i] + key - 65 ) % 26 + 65);	
+						codedString = codedString+myChar;
+					}//end if
+				}
+					
+				else {
+						myChar =inStringArry[i];
+						
+						codedString = codedString + myChar;
+					}
+					
+				
+			}// end for loop
+			
+			return codedString;
+			//return null;
 		}
 
 	}
